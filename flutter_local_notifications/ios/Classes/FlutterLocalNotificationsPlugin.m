@@ -289,47 +289,47 @@ static FlutterError *getFlutterError(NSError *error) {
                alertPermission:(bool)alertPermission
                badgePermission:(bool)badgePermission
                         result:(FlutterResult _Nonnull)result {
-  if (!soundPermission && !alertPermission && !badgePermission) {
-    result(@NO);
-    return;
-  }
-  if (@available(iOS 10.0, *)) {
-    UNUserNotificationCenter *center =
-        [UNUserNotificationCenter currentNotificationCenter];
+  // if (!soundPermission && !alertPermission && !badgePermission) {
+  //   result(@NO);
+  //   return;
+  // }
+  // if (@available(iOS 10.0, *)) {
+  //   UNUserNotificationCenter *center =
+  //       [UNUserNotificationCenter currentNotificationCenter];
 
-    UNAuthorizationOptions authorizationOptions = 0;
-    if (soundPermission) {
-      authorizationOptions += UNAuthorizationOptionSound;
-    }
-    if (alertPermission) {
-      authorizationOptions += UNAuthorizationOptionAlert;
-    }
-    if (badgePermission) {
-      authorizationOptions += UNAuthorizationOptionBadge;
-    }
-    [center requestAuthorizationWithOptions:(authorizationOptions)
-                          completionHandler:^(BOOL granted,
-                                              NSError *_Nullable error) {
-                            result(@(granted));
-                          }];
-  } else {
-    UIUserNotificationType notificationTypes = 0;
-    if (soundPermission) {
-      notificationTypes |= UIUserNotificationTypeSound;
-    }
-    if (alertPermission) {
-      notificationTypes |= UIUserNotificationTypeAlert;
-    }
-    if (badgePermission) {
-      notificationTypes |= UIUserNotificationTypeBadge;
-    }
-    UIUserNotificationSettings *settings =
-        [UIUserNotificationSettings settingsForTypes:notificationTypes
-                                          categories:nil];
-    [[UIApplication sharedApplication]
-        registerUserNotificationSettings:settings];
-    result(@YES);
-  }
+  //   UNAuthorizationOptions authorizationOptions = 0;
+  //   if (soundPermission) {
+  //     authorizationOptions += UNAuthorizationOptionSound;
+  //   }
+  //   if (alertPermission) {
+  //     authorizationOptions += UNAuthorizationOptionAlert;
+  //   }
+  //   if (badgePermission) {
+  //     authorizationOptions += UNAuthorizationOptionBadge;
+  //   }
+  //   [center requestAuthorizationWithOptions:(authorizationOptions)
+  //                         completionHandler:^(BOOL granted,
+  //                                             NSError *_Nullable error) {
+  //                           result(@(granted));
+  //                         }];
+  // } else {
+  //   UIUserNotificationType notificationTypes = 0;
+  //   if (soundPermission) {
+  //     notificationTypes |= UIUserNotificationTypeSound;
+  //   }
+  //   if (alertPermission) {
+  //     notificationTypes |= UIUserNotificationTypeAlert;
+  //   }
+  //   if (badgePermission) {
+  //     notificationTypes |= UIUserNotificationTypeBadge;
+  //   }
+  //   UIUserNotificationSettings *settings =
+  //       [UIUserNotificationSettings settingsForTypes:notificationTypes
+  //                                         categories:nil];
+  //   [[UIApplication sharedApplication]
+  //       registerUserNotificationSettings:settings];
+  //   result(@YES);
+  // }
 }
 
 - (UILocalNotification *)buildStandardUILocalNotification:
