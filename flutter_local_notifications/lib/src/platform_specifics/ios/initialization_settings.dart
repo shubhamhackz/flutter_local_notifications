@@ -4,12 +4,12 @@ import '../../typedefs.dart';
 class IOSInitializationSettings {
   /// Constructs an instance of [IOSInitializationSettings].
   const IOSInitializationSettings({
-    this.requestAlertPermission = true,
-    this.requestSoundPermission = true,
-    this.requestBadgePermission = true,
-    this.defaultPresentAlert = true,
-    this.defaultPresentSound = true,
-    this.defaultPresentBadge = true,
+    this.requestAlertPermission = false,
+    this.requestSoundPermission = false,
+    this.requestBadgePermission = false,
+    this.defaultPresentAlert = false,
+    this.defaultPresentSound = false,
+    this.defaultPresentBadge = false,
     this.onDidReceiveLocalNotification,
   });
 
