@@ -43,12 +43,12 @@ void main() {
       await flutterLocalNotificationsPlugin.initialize(initializationSettings);
       expect(log, <Matcher>[
         isMethodCall('initialize', arguments: <String, Object>{
-          'requestAlertPermission': true,
-          'requestSoundPermission': true,
-          'requestBadgePermission': true,
-          'defaultPresentAlert': true,
-          'defaultPresentSound': true,
-          'defaultPresentBadge': true,
+          'requestAlertPermission': false,
+          'requestSoundPermission': false,
+          'requestBadgePermission': false,
+          'defaultPresentAlert': false,
+          'defaultPresentSound': false,
+          'defaultPresentBadge': false,
         })
       ]);
     });
@@ -79,7 +79,11 @@ void main() {
 
     test('show without iOS-specific details', () async {
       const IOSInitializationSettings iosInitializationSettings =
-          IOSInitializationSettings();
+          IOSInitializationSettings(
+        requestAlertPermission: false,
+        requestBadgePermission: false,
+        requestSoundPermission: false,
+      );
       const InitializationSettings initializationSettings =
           InitializationSettings(iOS: iosInitializationSettings);
       await flutterLocalNotificationsPlugin.initialize(initializationSettings);
