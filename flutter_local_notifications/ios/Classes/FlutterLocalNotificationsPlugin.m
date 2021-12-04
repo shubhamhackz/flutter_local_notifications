@@ -236,31 +236,31 @@ static FlutterError *getFlutterError(NSError *error) {
 
 - (void)initialize:(NSDictionary *_Nonnull)arguments
             result:(FlutterResult _Nonnull)result {
-  if ([self containsKey:DEFAULT_PRESENT_ALERT forDictionary:arguments]) {
-    _displayAlert = [[arguments objectForKey:DEFAULT_PRESENT_ALERT] boolValue];
-  }
-  if ([self containsKey:DEFAULT_PRESENT_SOUND forDictionary:arguments]) {
-    _playSound = [[arguments objectForKey:DEFAULT_PRESENT_SOUND] boolValue];
-  }
-  if ([self containsKey:DEFAULT_PRESENT_BADGE forDictionary:arguments]) {
-    _updateBadge = [[arguments objectForKey:DEFAULT_PRESENT_BADGE] boolValue];
-  }
-  bool requestedSoundPermission = false;
-  bool requestedAlertPermission = false;
-  bool requestedBadgePermission = false;
-  if ([self containsKey:REQUEST_SOUND_PERMISSION forDictionary:arguments]) {
-    requestedSoundPermission = [arguments[REQUEST_SOUND_PERMISSION] boolValue];
-  }
-  if ([self containsKey:REQUEST_ALERT_PERMISSION forDictionary:arguments]) {
-    requestedAlertPermission = [arguments[REQUEST_ALERT_PERMISSION] boolValue];
-  }
-  if ([self containsKey:REQUEST_BADGE_PERMISSION forDictionary:arguments]) {
-    requestedBadgePermission = [arguments[REQUEST_BADGE_PERMISSION] boolValue];
-  }
-  [self requestPermissionsImpl:requestedSoundPermission
-               alertPermission:requestedAlertPermission
-               badgePermission:requestedBadgePermission
-                        result:result];
+  // if ([self containsKey:DEFAULT_PRESENT_ALERT forDictionary:arguments]) {
+  //   _displayAlert = [[arguments objectForKey:DEFAULT_PRESENT_ALERT] boolValue];
+  // }
+  // if ([self containsKey:DEFAULT_PRESENT_SOUND forDictionary:arguments]) {
+  //   _playSound = [[arguments objectForKey:DEFAULT_PRESENT_SOUND] boolValue];
+  // }
+  // if ([self containsKey:DEFAULT_PRESENT_BADGE forDictionary:arguments]) {
+  //   _updateBadge = [[arguments objectForKey:DEFAULT_PRESENT_BADGE] boolValue];
+  // }
+  // bool requestedSoundPermission = false;
+  // bool requestedAlertPermission = false;
+  // bool requestedBadgePermission = false;
+  // if ([self containsKey:REQUEST_SOUND_PERMISSION forDictionary:arguments]) {
+  //   requestedSoundPermission = [arguments[REQUEST_SOUND_PERMISSION] boolValue];
+  // }
+  // if ([self containsKey:REQUEST_ALERT_PERMISSION forDictionary:arguments]) {
+  //   requestedAlertPermission = [arguments[REQUEST_ALERT_PERMISSION] boolValue];
+  // }
+  // if ([self containsKey:REQUEST_BADGE_PERMISSION forDictionary:arguments]) {
+  //   requestedBadgePermission = [arguments[REQUEST_BADGE_PERMISSION] boolValue];
+  // }
+  // [self requestPermissionsImpl:requestedSoundPermission
+  //              alertPermission:requestedAlertPermission
+  //              badgePermission:requestedBadgePermission
+  //                       result:result];
 
   _initialized = true;
 }
