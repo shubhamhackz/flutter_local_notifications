@@ -502,11 +502,13 @@ class IOSFlutterLocalNotificationsPlugin
     bool alert = false,
     bool badge = false,
   }) =>
-      _channel.invokeMethod<bool?>('requestPermissions', <String, bool>{
-        'sound': sound,
-        'alert': alert,
-        'badge': badge,
-      });
+      Future.value(false);
+
+  // _channel.invokeMethod<bool?>('requestPermissions', <String, bool>{
+  //   'sound': sound,
+  //   'alert': alert,
+  //   'badge': badge,
+  // });
 
   /// Schedules a notification to be shown at the specified date and time with
   /// an optional payload that is passed through when a notification is tapped.
