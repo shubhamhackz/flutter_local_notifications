@@ -144,7 +144,9 @@ static FlutterError *getFlutterError(NSError *error) {
     [self showDailyAtTime:call.arguments result:result];
   } else if ([SHOW_WEEKLY_AT_DAY_AND_TIME_METHOD isEqualToString:call.method]) {
     [self showWeeklyAtDayAndTime:call.arguments result:result];
-  }  else if ([CANCEL_METHOD isEqualToString:call.method]) {
+  } else if ([REQUEST_PERMISSIONS_METHOD isEqualToString:call.method]) {
+    [self requestPermissions:call.arguments result:result];
+  } else if ([CANCEL_METHOD isEqualToString:call.method]) {
     [self cancel:((NSNumber *)call.arguments) result:result];
   } else if ([CANCEL_ALL_METHOD isEqualToString:call.method]) {
     [self cancelAll:result];

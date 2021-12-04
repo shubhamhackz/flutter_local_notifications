@@ -190,9 +190,9 @@ class _HomePageState extends State<HomePage> {
         .resolvePlatformSpecificImplementation<
             IOSFlutterLocalNotificationsPlugin>()
         ?.requestPermissions(
-          alert: true,
-          badge: true,
-          sound: true,
+          alert: false,
+          badge: false,
+          sound: false,
         );
     flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
